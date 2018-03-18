@@ -1,0 +1,74 @@
+
+    <!-- qui non c'è una variabile creata nela pagina del controller, questo in quanto all'inizio dell pagina del controller c'è il before_action. quello vuol dire che prima di fare tutto, quindi prima di fare partire l'index, devi fare quella funzione, ossia la funzione set content e lo devi fare per le funzioni dopo l'only, ossia lo show edit update e destroy. Cos'è set content? Questa funzione si ritrova alla fine della pagina del controller dove dice che l'azione set content crea una variabile @content che è uguale al content.find (params [:id]) , e vuol dire vai nella cartella contenuti e vai a trovare quella riga che ha l'id di riferimento. Difatti quando siamo su show viene richiamato l'id. E queto verrà fatto anche per gli altri destroy ecc -->
+<br>
+<br>
+<br>
+<div class="row">
+
+    <div class="col l6">
+          <%= image_tag @content.cover.url, class: "responsive-img mostra-immagine" %>
+    </div>
+    <div class="col l6">
+                  <h2 class="mostra_titolo">
+                          
+                          <%= @content.titolo %>
+                  </h2>
+                  <h5>
+                          <%= number_to_currency (@content.prezzo) %>
+                  </h5>
+
+                  <p>
+                          Venduto da 
+                          <%= @content.user.nome %>
+                  </p>
+
+                  <p>
+                          
+                          <%= @content.descrizione %>
+                  </p>
+
+                  <% if current_user %>
+
+                                  <%= form_tag compra_path(slug: @content.slug) do %>
+                                        <script
+                                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"           
+                                          data-amount="<%= @content.prezzo*100 %>"
+                                          data-name="EasyNotes"
+                                          data-description="<%= @content.titolo %>"
+                                          data-email= "<%= current_user.email %>"
+                                          data-currency="eur"
+                                          data-locale="auto">
+
+                                        </script>
+                                        <br>
+                                        <br>
+                                        <br>
+                                  <% end %>
+
+                            <%else %>
+                                 
+                                  <br>                              
+                                  <br>
+                                  <p> Fai il <%= link_to "Log in", new_user_session_path %> o <%= link_to "Registrati", new_user_registration_path %> per acquistare </p>
+
+                    <% end %>
+
+      </div>
+<br>
+<div class = "center" >
+
+<% if @content.user == current_user  %>
+  
+      <%= link_to 'Modifica annuncio', edit_content_path(@content), class: "btn" %> 
+  <br>
+  <br>
+<% end %>    
+  
+      <%= link_to 'Torna agli annunci', contents_path, class: "btn" %>
+    <br>
+    <br>
+  </div>
+</div>
+
+</div>

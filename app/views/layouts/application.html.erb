@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+  <title>EasyNotes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+</head>  
+<body>
+
+<%= render "layouts/header" %>
+
+<%= render "pages/slider" if action_name == "home" %> 
+
+<main class="container">
+
+    <%= yield %>
+</main>
+<%= render "pages/icon" if action_name == "home" %> 
+
+
+</div>
+
+<%= render "layouts/footer" %>
+
+</body>
+    
+    <script>
+    		$(".button-collapse").sideNav();
+	</script>
+    
+</html>

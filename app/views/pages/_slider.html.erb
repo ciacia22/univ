@@ -1,0 +1,99 @@
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <br>
+        <h1 class="header center  text-black yellow"><strong>Compra e vendi i tuoi <br>libri al miglior prezzo</strong></h1>
+        <div class="row center">
+          <h5 class="header col s12 light yellow"><br>Non tenere libri che sai che non leggerai più, vendili con easybooks!<br>_ </h5>
+        </div>
+        <br>
+        <div class="row center">
+          <%= link_to "Vai alle università", universities_path, class: "btn" %>
+        </div>
+        <br>
+        <br>
+        
+      </div>
+    </div>
+    <div class="parallax"><%= image_tag("home.jpg") %></div>
+  </div>
+<br>
+<br>
+
+<div class="center">
+
+    <h3> Cosa vuoi fare? </h3>
+
+    <div class="class-acquista">
+
+            <%= link_to "Acquista", contents_path, class: "btn-large red width" %>
+            <br>
+
+            <div class="center">
+
+                <h5> Come si fa: </h5>
+                <p> <%= link_to "Registrati", new_user_registration_path %> o fai il <%= link_to "log in", new_user_session_path %></p>
+
+                 <div class="icon-block">
+                <p class="center brown-text"><i class="material-icons">flash_on</i></p>
+                </div>
+
+                <p>Premi su <%= link_to "acquista", contents_path %></p>
+
+                <div class="icon-block">
+                <p class="center brown-text"><i class="material-icons">flash_on</i></p>
+                </div>
+
+                <p>Scegli il prodotto e compralo</p>
+
+                <div class="icon-block">
+                <p class="center brown-text"><i class="material-icons">flash_on</i></p>
+                </div>
+
+                <p>Una volta pagato riceverai tutte le informazioni <br>del venditore per accordarvi sullo scambio!</p>
+
+
+<br>
+
+            </div>
+
+    </div>
+
+
+    <div class="class-vendi">
+
+            <%= link_to 'Vendi', new_content_path, class: "btn-large green width" %>
+            <br>
+            <h5 class="center"> Come si fa: </h5>
+
+            <p> <%= link_to "Registrati", new_user_registration_path %> o fai il <%= link_to "log in", new_user_session_path %></p>
+
+            <div class="icon-block">
+            <p class="center brown-text"><i class="material-icons">flash_on</i></p>
+            </div>
+
+            <p>Premi su <%= link_to 'vendi', new_content_path %> </p>
+
+            <div class="icon-block">
+                  <p class="center brown-text"><i class="material-icons">flash_on</i></p>
+                  </div>
+
+                  <p>Completa il form</p>
+
+                  <div class="icon-block">
+                  <p class="center brown-text"><i class="material-icons">flash_on</i></p>
+                  </div>
+
+                  <p> Quando qualcuno comprerà riceverà le tue informazioni<br> per accordarvi sullo scambio del libro!</p>
+
+<br>
+
+    </div>
+
+    <hr>
+
+
+
+  

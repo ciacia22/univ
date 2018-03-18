@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titolo:</strong>
+  <%= @bocconi.titolo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bocconi.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @bocconi.price %>
+</p>
+
+<p>
+  <strong>Cover:</strong>
+  <%= @bocconi.cover %>
+</p>
+
+<%= link_to 'Edit', edit_bocconi_path(@bocconi) %> |
+<%= link_to 'Back', bocconis_path %>

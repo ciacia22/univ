@@ -1,0 +1,11 @@
+/Users/Gabriele/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20180211-30296-1m9dohf.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20180211-30296-7usd9v

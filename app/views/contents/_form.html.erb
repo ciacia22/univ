@@ -1,0 +1,41 @@
+<div class="container">
+<%= form_for (@content), html: { multipart: true } do |f| %>    <!-- questo dice che devi creare un form per la variabile content e do (crea) un campo per tutti quelli sotto, ossia titolo descrizione prezzo  -->
+  <% if @content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+      <% @content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p class="grey-text text-lighten3"> Titolo dell'annuncio
+    <%= f.text_field :titolo %></p>
+  </div>
+  <div class="field">
+    <p class="grey-text text-lighten3">Descrizione
+    <%= f.text_area :descrizione, class: "materialize-textarea" %></p>
+  </div>
+  <div class="field">
+    <p class="grey-text text-lighten3">Prezzo
+      <%= f.text_field :prezzo %> </p> 
+  </div>
+  <div class="field">
+    <p class="grey-text text-lighten3">Immagine di copertina dell'annuncio</p>
+    <p class="box"><%= f.file_field :cover %></p>
+  </div>
+
+   <div class="field">
+    <p class="grey-text text-lighten3">Carica il contenuto che vuoi vendere</p>
+    <p class="box"><%= f.file_field :allegato %></p>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Inserisci annuncio", class: "btn btn-form" %>
+  </div>
+<% end %>
+</div>

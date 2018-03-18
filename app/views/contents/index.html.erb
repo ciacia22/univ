@@ -1,0 +1,77 @@
+
+      <br>
+        <br>
+
+
+    <h3 class="center">Tutti gli annunci</h3>
+                <!-- abbiamo prima una tabella con gli elementi -->
+<br>
+
+<div class="row">
+
+   <% @contents.each do |content| %>   <!-- questo è un embedd ruby, ossia un ruby nell'html che si scrivono con maggiore e percentuale. Poi se c'è l'uguale è un operazione mostrata, altrimenti è processata senza mostrarla.
+        
+        Quell'operazione prevede una @contents. E' una variabile che abbiamo creato noi creando i contenuti (l'ha creata ruby con lo scaffold). La possiamo trovare nel controller sotto index, dove dice @contents= Content.all  Con questa variabile si fa si che si vada nel database e si mostrano tutti gli elementi che ci sono. Poi qui, dopo @contents c'è .each , quello è un metodo che crea un loop, ossia per tutti i contenuti che abbiamo bisogna fare qualcosa, difatti c'è scritto il do, ossia fai qualcosa. Quel qualcosa ora si chiama content, ma lo puoi chiamare come vuoi. Quel content poi fa si che quel qualcosa sia quello scritto sotto prima di maggiore %end% >, ossia il titolo la descrizione e il prezzo. E poi ci sono i link  -->
+
+            <div class="col s4">
+
+                           <div class="card" >
+                                  <div class="card-image waves-effect waves-block waves-light">
+                                    <%= image_tag content.cover.url, class:"activator" %>
+                                    
+                                  </div>
+                                  <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">more_vert</i></span>
+                                    <div>
+                                      <span>
+                                        Venduto da <%= content.user.nome %> 
+                                        <br> 
+                                        <br>
+                                        Prezzo:   
+                                      </span>
+                                      <span class="right">
+                                  
+                                         <%= number_to_currency(content.prezzo) %> 
+                                         <br>
+                                      </span>
+
+
+                                    </div>
+                                    
+                                    
+                                  
+                                    <div class ="center">
+                                      <br><%= link_to 'Scopri di più', content, class: "btn" %> </div>
+                                    
+                                     
+                                    
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">close</i></span>
+                                    <p><%= content.descrizione %></p>
+                            </div>
+                </div>
+              </div>
+              
+
+    <% end %> 
+</div>
+
+
+
+
+   
+
+    <br>
+
+   
+
+<br>
+<br>
+    
+    
+
+<br>
+<br>
+<div class="center"><%= will_paginate @contents %></div>
+<br>
